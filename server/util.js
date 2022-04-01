@@ -1,7 +1,8 @@
 import pino from 'pino';
 
 const log = pino({
-    enabled: (!!process.env.LOG_DIABLED),
+    enabled: !(!!process.env.LOG_DIABLED),
+    level: (!!process.env.LOG_DIABLED? 'silent': 'info'),
     transport: {
         target: 'pino-pretty',
         options: {
@@ -10,4 +11,5 @@ const log = pino({
     }
 });
 
-export const logger = log
+const logger = log
+export default logger

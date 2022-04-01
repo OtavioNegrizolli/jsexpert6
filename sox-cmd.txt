@@ -1,0 +1,28 @@
+sox \
+    --i \
+    "audio/songs/conversation.mp3"
+
+# set sample rate
+## -v = increse volume
+## -t = audio type
+## -r = sample rate
+
+sox \
+    -v <0-1 volume range> \
+    -t <input_ext> \
+    <input_file.input_ext> \
+    -r 48000 \
+    -t <output_ext>\
+    <output_file.output_ext>
+
+
+# concatenate audios
+sox \
+    -t mp3 \
+    -v 0.99 \
+    -m "<input_file>"\
+    -t mp3 \
+    -v 0.99 \
+    "<overlay_audio>"
+    -t mp3 \
+    "<output>"

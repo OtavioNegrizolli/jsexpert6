@@ -1,4 +1,4 @@
-import { jest, expect, describe, test, beforeEach } from '@jest/globals';
+import { jest, expect, describe, beforeEach } from '@jest/globals';
 
 
 import config from '../../../server/config.js'
@@ -12,7 +12,7 @@ const {
     constants: {
         CONTENT_TYPE
     }
-} = config
+} = config;
 
 
 describe('#Routes - test site api for response', () => {
@@ -165,7 +165,7 @@ describe('#Routes - test site api for response', () => {
                 Controller.prototype.getFileStream.name
             )
             .mockRejectedValue(
-                new Error('Error: ENOENT: no such file or other thing!')
+                new Error('ENOENT mock error: no such file or other thing!')
             );
 
             // test
@@ -175,7 +175,7 @@ describe('#Routes - test site api for response', () => {
             expect(params.response.end).toHaveBeenCalled();
         });
 
-        it('given inexistente fole it should respond with 500!', async () => {
+        it('given inexistente file it should respond with 500!', async () => {
             // setup
             const params = TestUtil.defaultHandleParams()
             params.request.method = 'GET';
@@ -186,7 +186,7 @@ describe('#Routes - test site api for response', () => {
                 Controller.prototype.getFileStream.name
             )
             .mockRejectedValue(
-                new Error('Error!')
+                new Error('Test mock error!')
             );
 
             // test

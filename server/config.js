@@ -8,13 +8,14 @@ const root = join(cwd, '../')
 const audio_dir = join(root, 'audio');
 const public_dir = join(root, 'public');
 
+const songsDirectory = join(audio_dir, 'songs');
 export default {
     port: process.env.PORT || 3000,
     dir: {
         root,
         publicDirectory: public_dir,
         audioDirectory: audio_dir,
-        songsDirectory: join(audio_dir, 'songs'),
+        songsDirectory,
         fxDirectory: join(audio_dir, 'fx')
     },
     pages: {
@@ -32,6 +33,11 @@ export default {
             '.png': 'image/png',
             '.jpg': 'image/jpeg',
             '.jpeg': 'image/jpeg',
-        }
+        },
+        audioMediaType: 'mp3',
+        songVolume: '0.99',
+        fallbackBitRate: '128000',
+        bitRateFraction: 8,
+        baseAudio: join(songsDirectory, 'conversation.mp3')
     }
 }

@@ -1,0 +1,75 @@
+version: '2.1'
+services:
+    live-reload:
+        image: spot-clone
+        build: .
+        environment:
+            PORT: 3000
+        command:
+            - npm
+            - run
+            - live-reload
+        volumes:
+            - .:/spot-clone
+            - node_modules:/spot-clone/node_modules
+        ports:
+            - 3000:3000
+    test-e2e:
+        image: spot-clone
+        build: .
+        environment:
+            PORT: 3000
+        command:
+            - npm
+            - run
+            - test:e2e
+        volumes:
+            - .:/spot-clone
+            - node_modules:/spot-clone/node_modules
+        ports:
+            - 3000:3000
+    test:
+        image: spot-clone
+        build: .
+        environment:
+            PORT: 3000
+        command:
+            - npm
+            - run
+            - test
+        volumes:
+            - .:/spot-clone
+            - node_modules:/spot-clone/node_modules
+        ports:
+            - 3000:3000
+
+    test-coverage:
+        image: spot-clone
+        build: .
+        environment:
+            PORT: 3000
+        command:
+            - npm
+            - run
+            - test:cov
+        volumes:
+            - .:/spot-clone
+            - node_modules:/spot-clone/node_modules
+        ports:
+            - 3000:3000
+    test-watch:
+        image: spot-clone
+        build: .
+        environment:
+            PORT: 3000
+        command:
+            - npm
+            - run
+            - test:watch
+        volumes:
+            - .:/spot-clone
+            - node_modules:/spot-clone/node_modules
+        ports:
+            - 3000:3000
+volumes:
+    node_modules: {}

@@ -26,8 +26,8 @@ export default {
     projects: [
         {
             ...defaultconfig,
-            testEnvironment: "node",
             displayName: "backend",
+            testEnvironment: "node",
             collectCoverageFrom: [
                 "server/",
                 "!server/index.js"
@@ -42,8 +42,8 @@ export default {
         },
         {
             ...defaultconfig,
-            testEnvironment: "jsdom",
             displayName: "frontend",
+            testEnvironment: "jsdom",
             collectCoverageFrom: [
                 "public/",
             ],

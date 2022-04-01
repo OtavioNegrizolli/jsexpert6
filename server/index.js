@@ -1,5 +1,5 @@
 import server from  './server.js'
-import { logger } from './util.js'
+import logger from './util.js'
 
 import config from './config.js'
 
