@@ -1,0 +1,29 @@
+// file with the steps to heroku launch the app
+create heroku.yml
+
+// install globaly the heroku cli
+npm i -g heroku
+
+// commit all changes
+git add . && git commit -m 'some message'
+
+// crate the application(must have unique name)
+heroku apps:create 'spotfy-clone'
+
+// checkup if the heroku remote was added
+git remote -v
+
+// install heroku packages and configs to create a container app
+heroku stack:set container
+
+// update the heroku repository and send to up
+git push heroku master
+
+// open the deployed app
+heroku open
+
+// show the logs of all my apps on heroku
+heroku logs -t
+
+// remove app from heroku
+heroku apps:delete

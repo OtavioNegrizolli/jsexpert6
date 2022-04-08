@@ -20,12 +20,13 @@ export class Controller {
         };
         const cmd = command.toLowerCase();
         if (cmd.includes('start'))
-        {
             this.service.startStreamming();
-        }
         else if (cmd.includes('stop'))
-        {
             this.service.stopStreamming();
+        else {
+            const chosenFx = await this.service.readFxByName(cmd);
+            logger.info(`merging ${chosenFx} effect to the stream!`);
+            this.service.appendFxToStream(chosenFx);
         }
         return result;
     }
